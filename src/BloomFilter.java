@@ -39,6 +39,10 @@ public class BloomFilter {
         return this.filter;
     }
 
+    public void setFilter(boolean[] bf) {
+        this.filter = bf;
+    }
+
     public int getK(){
         return this.k;
     }

@@ -3,12 +3,14 @@ import java.rmi.RemoteException;
 
 public interface ServerInterface extends Remote {
 
-    void putData (int[] a) throws RemoteException;
+    void putData (DataTuple[] a) throws RemoteException;
 
-    int getFirst () throws RemoteException;
-
-    void setFilter (int m, int p, int[] a, int[] b) throws RemoteException;
+    void setFilterConfig(int m, int p, int[] a, int[] b) throws RemoteException;
 
     boolean[] getBF() throws RemoteException;
+
+    int getDataSize() throws RemoteException;
+
+    DataTuple[] getFilteredData(boolean[] bf) throws RemoteException;
 }
 
