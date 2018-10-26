@@ -2,9 +2,9 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-public class Server extends UnicastRemoteObject implements ServerInterface {
+public class SubServer extends UnicastRemoteObject implements SubServerInterface {
 
-    protected Server() throws RemoteException {
+    protected SubServer() throws RemoteException {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -23,7 +23,6 @@ public class Server extends UnicastRemoteObject implements ServerInterface {
 
     public boolean[] getBF() throws RemoteException{
         for (DataTuple z:data) {
-            System.out.println(z.getA1());
             this.filter.add(z.getA1());
         }
         return this.filter.getFilter();

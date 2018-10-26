@@ -1,7 +1,7 @@
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface ServerInterface extends Remote {
+public interface SubServerInterface extends Remote {
 
     void putData (DataTuple[] a) throws RemoteException;
 
@@ -13,4 +13,3 @@ public interface ServerInterface extends Remote {
 
     DataTuple[] getFilteredData(boolean[] bf) throws RemoteException;
 }
-
