@@ -2,6 +2,7 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 public class Client {
 
@@ -10,9 +11,9 @@ public class Client {
 
         MasterServerInterface master = (MasterServerInterface) Naming.lookup("rmi://localhost:5097/master");
 
-        DataTuple[] data = master.doJoin();
-        for (DataTuple d:data) {
-            d.print();
+        ArrayList<DataTuple> data = master.doJoin();
+        for (int i = 0; i < data.size(); i++) {
+            data.get(i).print();
         }
     }
 }

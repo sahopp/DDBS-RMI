@@ -9,11 +9,11 @@ public class SubServer extends UnicastRemoteObject implements SubServerInterface
         // TODO Auto-generated constructor stub
     }
 
-    private DataTuple[] data;
+    private ArrayList<DataTuple> data;
     private BloomFilter filter;
 
 
-    public void putData(DataTuple[] a) throws RemoteException{
+    public void putData(ArrayList<DataTuple> a) throws RemoteException{
         this.data = a;
     }
 
@@ -29,16 +29,16 @@ public class SubServer extends UnicastRemoteObject implements SubServerInterface
     }
 
     public int getDataSize() throws RemoteException{
-        return this.data.length;
+        return this.data.size();
     }
 
-    public DataTuple[] getFilteredData(boolean[] bf){
+    public ArrayList<DataTuple> getFilteredData(boolean[] bf){
         ArrayList<DataTuple> result =  new ArrayList();
 
         this.filter.setFilter(bf);
         for (DataTuple z:data) {
             if (this.filter.check(z.getA1())) {result.add(z);}
         }
-        return result.toArray(new DataTuple[]{});
+        return result;
     }
 }

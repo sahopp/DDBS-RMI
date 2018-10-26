@@ -3,6 +3,7 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
 
 public class MasterServer extends UnicastRemoteObject implements MasterServerInterface {
@@ -13,25 +14,29 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
     }
 
     @Override
-    public DataTuple[] doJoin()  throws MalformedURLException, RemoteException, NotBoundException {
+    public ArrayList<DataTuple> doJoin()  throws MalformedURLException, RemoteException, NotBoundException {
 
         SubServerInterface service1 = (SubServerInterface) Naming.lookup("rmi://localhost:5099/hello");
         SubServerInterface service2 = (SubServerInterface) Naming.lookup("rmi://localhost:5098/blabla");
 
-        DataTuple[] data1 = new DataTuple[]{new DataTuple(3, "a"),
-                new DataTuple(2, "b"),
-                new DataTuple(7, "c"),
-                new DataTuple(3, "d")};
+        ArrayList<DataTuple> data1 = new ArrayList<>();
+        data1.add(new DataTuple(3, "a"));
+        data1.add(new DataTuple(2, "b"));
+        data1.add(new DataTuple(7, "c"));
+        data1.add(new DataTuple(3, "d"));
 
         service1.putData(data1);
 
-        DataTuple[] data2 = new DataTuple[]{new DataTuple(16, "e"),
-                new DataTuple(4, "f"),
-                new DataTuple(3, "g"),
-                new DataTuple(2, "h"),
-                new DataTuple(7, "i"),
-                new DataTuple(3, "j"),
-                new DataTuple(9, "k")};
+
+        ArrayList<DataTuple> data2 = new ArrayList<>();
+        data1.add(new DataTuple(16, "e"));
+        data1.add(new DataTuple(4, "f"));
+        data1.add(new DataTuple(3, "g"));
+        data1.add(new DataTuple(2, "h"));
+        data1.add(new DataTuple(7, "i"));
+        data1.add(new DataTuple(3, "j"));
+        data1.add(new DataTuple(9, "k"));
+        
 
         service2.putData(data2);
 
@@ -40,7 +45,7 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
         service2.setFilterConfig(filter.getM(), filter.getP(), filter.getA(), filter.getB());
 
         boolean[] bf = service1.getBF();
-        DataTuple[] dt = service2.getFilteredData(bf);
+        ArrayList<DataTuple> dt = service2.getFilteredData(bf);
         for (DataTuple z : dt) {
             z.print();
         }
