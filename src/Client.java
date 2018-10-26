@@ -12,8 +12,8 @@ public class Client {
         MasterServerInterface master = (MasterServerInterface) Naming.lookup("rmi://localhost:5097/master");
 
           ArrayList<DataTuple> data = master.doJoin();
-//        for (int i = 0; i < data.size(); i++) {
-//            data.get(i).print();
-//        }
+          for (int i = 0; i < data.size(); i++) {
+              data.get(i).print();
+          }
     }
 }

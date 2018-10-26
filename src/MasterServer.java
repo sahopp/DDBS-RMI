@@ -20,22 +20,22 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
         SubServerInterface service2 = (SubServerInterface) Naming.lookup("rmi://localhost:5098/sub2");
 
         ArrayList<DataTuple> data1 = new ArrayList<>();
-        data1.add(new DataTuple(3, "a"));
-        data1.add(new DataTuple(2, "b"));
-        data1.add(new DataTuple(7, "c"));
-        data1.add(new DataTuple(3, "d"));
+        data1.add(new DataTuple1(3, "a", "q"));
+        data1.add(new DataTuple1(2, "b", "w"));
+        data1.add(new DataTuple1(7, "c", "e"));
+        data1.add(new DataTuple1(3, "d", "r"));
 
         service1.putData(data1);
 
 
         ArrayList<DataTuple> data2 = new ArrayList<>();
-        data2.add(new DataTuple(16, "e"));
-        data2.add(new DataTuple(4, "f"));
-        data2.add(new DataTuple(3, "g"));
-        data2.add(new DataTuple(2, "h"));
-        data2.add(new DataTuple(7, "i"));
-        data2.add(new DataTuple(3, "j"));
-        data2.add(new DataTuple(9, "k"));
+        data2.add(new DataTuple2(16, 1, "e"));
+        data2.add(new DataTuple2(4, 2, "f"));
+        data2.add(new DataTuple2(3, 3, "g"));
+        data2.add(new DataTuple2(2, 4, "h"));
+        data2.add(new DataTuple2(7, 5, "i"));
+        data2.add(new DataTuple2(3, 6, "j"));
+        data2.add(new DataTuple2(9, 7, "k"));
         
 
         service2.putData(data2);
@@ -47,7 +47,7 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
         boolean[] bf = service1.getBF();
         ArrayList<DataTuple> dt = service2.getFilteredData(bf);
         for (DataTuple z : dt) {
-            z.print();
+            //z.print();
         }
         return dt;
     }

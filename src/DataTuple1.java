@@ -17,4 +17,8 @@ public class DataTuple1 extends DataTuple {
     public String getA3() {
         return A3;
     }
+
+    public void print(){
+        System.out.println("( " + this.A1 + " , " + this.A2 + " , " + this.A3 + " )");
+    }
 }

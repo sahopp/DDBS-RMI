@@ -2,7 +2,7 @@ import java.io.Serializable;
 
 public abstract class DataTuple implements Serializable {
 
-    private int A1;
+    protected int A1;
 
     public DataTuple(int A1) {
         this.A1 = A1;
@@ -16,5 +16,5 @@ public abstract class DataTuple implements Serializable {
     public int getA1() {
         return A1;
     }
-
+     public abstract void print();
 }

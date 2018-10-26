@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd5aad4d-566e-4c84-a691-565f81d39288" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/DataTuple1.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/DataTuple2.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/DDBS-RMI/ApplicationServer.class" afterPath="$PROJECT_DIR$/out/production/DDBS-RMI/ApplicationServer.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/DDBS-RMI/Client.class" afterPath="$PROJECT_DIR$/out/production/DDBS-RMI/Client.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/DDBS-RMI/DataTuple.class" afterPath="$PROJECT_DIR$/out/production/DDBS-RMI/DataTuple.class" />
       <change beforePath="$PROJECT_DIR$/out/production/DDBS-RMI/MasterServer.class" afterPath="$PROJECT_DIR$/out/production/DDBS-RMI/MasterServer.class" />
-      <change beforePath="$PROJECT_DIR$/src/ApplicationServer.java" afterPath="$PROJECT_DIR$/src/ApplicationServer.java" />
       <change beforePath="$PROJECT_DIR$/src/Client.java" afterPath="$PROJECT_DIR$/src/Client.java" />
       <change beforePath="$PROJECT_DIR$/src/DataTuple.java" afterPath="$PROJECT_DIR$/src/DataTuple.java" />
+      <change beforePath="$PROJECT_DIR$/src/DataTuple1.java" afterPath="$PROJECT_DIR$/src/DataTuple1.java" />
+      <change beforePath="$PROJECT_DIR$/src/DataTuple2.java" afterPath="$PROJECT_DIR$/src/DataTuple2.java" />
       <change beforePath="$PROJECT_DIR$/src/MasterServer.java" afterPath="$PROJECT_DIR$/src/MasterServer.java" />
-      <change beforePath="$PROJECT_DIR$/src/SubServer.java" afterPath="$PROJECT_DIR$/src/SubServer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,13 +55,13 @@
       <file leaf-file-name="DataTuple.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DataTuple.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="60">
+              <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
               <folding>
-                <element signature="e#201#202#0" expanded="true" />
-                <element signature="e#224#225#0" expanded="true" />
-                <element signature="e#250#251#0" expanded="true" />
-                <element signature="e#275#276#0" expanded="true" />
+                <element signature="e#203#204#0" expanded="true" />
+                <element signature="e#226#227#0" expanded="true" />
+                <element signature="e#252#253#0" expanded="true" />
+                <element signature="e#277#278#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,13 +70,15 @@
       <file leaf-file-name="DataTuple1.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DataTuple1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+            <state relative-caret-position="295">
+              <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="21" selection-end-column="86" />
               <folding>
                 <element signature="e#243#244#0" expanded="true" />
                 <element signature="e#268#269#0" expanded="true" />
                 <element signature="e#297#298#0" expanded="true" />
                 <element signature="e#322#323#0" expanded="true" />
+                <element signature="e#348#349#0" expanded="true" />
+                <element signature="e#441#442#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -86,13 +87,15 @@
       <file leaf-file-name="DataTuple2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DataTuple2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+            <state relative-caret-position="281">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding>
                 <element signature="e#234#235#0" expanded="true" />
                 <element signature="e#259#260#0" expanded="true" />
                 <element signature="e#288#289#0" expanded="true" />
                 <element signature="e#313#314#0" expanded="true" />
+                <element signature="e#340#341#0" expanded="true" />
+                <element signature="e#433#434#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,8 +104,8 @@
       <file leaf-file-name="MasterServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MasterServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+            <state relative-caret-position="206">
+              <caret line="49" column="14" lean-forward="false" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -164,11 +167,11 @@
         <option value="$PROJECT_DIR$/src/MasterServerInterface.java" />
         <option value="$PROJECT_DIR$/src/SubServerInterface.java" />
         <option value="$PROJECT_DIR$/src/ApplicationServer.java" />
-        <option value="$PROJECT_DIR$/src/MasterServer.java" />
         <option value="$PROJECT_DIR$/src/SubServer.java" />
+        <option value="$PROJECT_DIR$/src/MasterServer.java" />
         <option value="$PROJECT_DIR$/src/DataTuple.java" />
-        <option value="$PROJECT_DIR$/src/DataTuple2.java" />
         <option value="$PROJECT_DIR$/src/DataTuple1.java" />
+        <option value="$PROJECT_DIR$/src/DataTuple2.java" />
         <option value="$PROJECT_DIR$/src/Client.java" />
       </list>
     </option>
@@ -379,7 +382,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16202000" />
+    <option name="totallyTimeSpent" value="16709000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -396,14 +399,14 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287879" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287879" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36212122" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36212122" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -539,10 +542,10 @@
         <state relative-caret-position="255">
           <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
           <folding>
-            <element signature="e#201#202#0" expanded="true" />
-            <element signature="e#224#225#0" expanded="true" />
-            <element signature="e#250#251#0" expanded="true" />
-            <element signature="e#275#276#0" expanded="true" />
+            <element signature="e#203#204#0" expanded="true" />
+            <element signature="e#226#227#0" expanded="true" />
+            <element signature="e#252#253#0" expanded="true" />
+            <element signature="e#277#278#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -570,10 +573,10 @@
         <state relative-caret-position="255">
           <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
           <folding>
-            <element signature="e#201#202#0" expanded="true" />
-            <element signature="e#224#225#0" expanded="true" />
-            <element signature="e#250#251#0" expanded="true" />
-            <element signature="e#275#276#0" expanded="true" />
+            <element signature="e#203#204#0" expanded="true" />
+            <element signature="e#226#227#0" expanded="true" />
+            <element signature="e#252#253#0" expanded="true" />
+            <element signature="e#277#278#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -696,18 +699,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ApplicationServer.java">
+    <entry file="file://$PROJECT_DIR$/src/SubServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="33" lean-forward="false" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        <state relative-caret-position="630">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MasterServer.java">
+    <entry file="file://$PROJECT_DIR$/src/ApplicationServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+        <state relative-caret-position="105">
+          <caret line="9" column="33" lean-forward="false" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -720,49 +723,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SubServer.java">
+    <entry file="file://$PROJECT_DIR$/src/MasterServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state relative-caret-position="206">
+          <caret line="49" column="14" lean-forward="false" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DataTuple.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
           <folding>
-            <element signature="e#201#202#0" expanded="true" />
-            <element signature="e#224#225#0" expanded="true" />
-            <element signature="e#250#251#0" expanded="true" />
-            <element signature="e#275#276#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataTuple2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding>
-            <element signature="e#234#235#0" expanded="true" />
-            <element signature="e#259#260#0" expanded="true" />
-            <element signature="e#288#289#0" expanded="true" />
-            <element signature="e#313#314#0" expanded="true" />
+            <element signature="e#203#204#0" expanded="true" />
+            <element signature="e#226#227#0" expanded="true" />
+            <element signature="e#252#253#0" expanded="true" />
+            <element signature="e#277#278#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DataTuple1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        <state relative-caret-position="295">
+          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="21" selection-end-column="86" />
           <folding>
             <element signature="e#243#244#0" expanded="true" />
             <element signature="e#268#269#0" expanded="true" />
             <element signature="e#297#298#0" expanded="true" />
             <element signature="e#322#323#0" expanded="true" />
+            <element signature="e#348#349#0" expanded="true" />
+            <element signature="e#441#442#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataTuple2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="e#234#235#0" expanded="true" />
+            <element signature="e#259#260#0" expanded="true" />
+            <element signature="e#288#289#0" expanded="true" />
+            <element signature="e#313#314#0" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
+            <element signature="e#433#434#0" expanded="true" />
           </folding>
         </state>
       </provider>
