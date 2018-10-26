@@ -15,5 +15,6 @@ public class Client {
           for (int i = 0; i < data.size(); i++) {
               data.get(i).print();
           }
+          System.out.print(data.size());
     }
 }
