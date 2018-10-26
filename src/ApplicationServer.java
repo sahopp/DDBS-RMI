@@ -7,10 +7,10 @@ public class ApplicationServer {
     public static void main(String[] args) throws RemoteException{
         // TODO Auto-generated method stub
         Registry registry5099 =LocateRegistry.createRegistry(5099);
-        registry5099.rebind("hello", new SubServer());
+        registry5099.rebind("sub1", new SubServer());
 
         Registry registry5098 =LocateRegistry.createRegistry(5098);
-        registry5098.rebind("blabla", new SubServer());
+        registry5098.rebind("sub2", new SubServer());
 
         Registry registry5097 =LocateRegistry.createRegistry(5097);
         registry5097.rebind("master", new MasterServer());

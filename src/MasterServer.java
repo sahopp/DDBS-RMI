@@ -16,8 +16,8 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
     @Override
     public ArrayList<DataTuple> doJoin()  throws MalformedURLException, RemoteException, NotBoundException {
 
-        SubServerInterface service1 = (SubServerInterface) Naming.lookup("rmi://localhost:5099/hello");
-        SubServerInterface service2 = (SubServerInterface) Naming.lookup("rmi://localhost:5098/blabla");
+        SubServerInterface service1 = (SubServerInterface) Naming.lookup("rmi://localhost:5099/sub1");
+        SubServerInterface service2 = (SubServerInterface) Naming.lookup("rmi://localhost:5098/sub2");
 
         ArrayList<DataTuple> data1 = new ArrayList<>();
         data1.add(new DataTuple(3, "a"));

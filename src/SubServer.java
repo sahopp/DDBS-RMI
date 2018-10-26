@@ -33,7 +33,7 @@ public class SubServer extends UnicastRemoteObject implements SubServerInterface
     }
 
     public ArrayList<DataTuple> getFilteredData(boolean[] bf){
-        ArrayList<DataTuple> result =  new ArrayList();
+        ArrayList<DataTuple> result =  new ArrayList<>();
 
         this.filter.setFilter(bf);
         for (DataTuple z:data) {
