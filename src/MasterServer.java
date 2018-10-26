@@ -29,13 +29,13 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
 
 
         ArrayList<DataTuple> data2 = new ArrayList<>();
-        data1.add(new DataTuple(16, "e"));
-        data1.add(new DataTuple(4, "f"));
-        data1.add(new DataTuple(3, "g"));
-        data1.add(new DataTuple(2, "h"));
-        data1.add(new DataTuple(7, "i"));
-        data1.add(new DataTuple(3, "j"));
-        data1.add(new DataTuple(9, "k"));
+        data2.add(new DataTuple(16, "e"));
+        data2.add(new DataTuple(4, "f"));
+        data2.add(new DataTuple(3, "g"));
+        data2.add(new DataTuple(2, "h"));
+        data2.add(new DataTuple(7, "i"));
+        data2.add(new DataTuple(3, "j"));
+        data2.add(new DataTuple(9, "k"));
         
 
         service2.putData(data2);
