@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public abstract class DataTuple implements Serializable {
+public abstract class DataTuple implements Serializable, Comparable {
 
     protected int A1;
 
@@ -16,5 +16,11 @@ public abstract class DataTuple implements Serializable {
     public int getA1() {
         return A1;
     }
-     public abstract void print();
+
+    public abstract void print();
+
+    @Override
+    public int compareTo(Object o){
+        return Integer.compare(this.A1, ((DataTuple) o).getA1());
+    }
 }
