@@ -8,6 +8,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 public class MasterServer extends UnicastRemoteObject implements MasterServerInterface {
@@ -15,6 +17,45 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
     protected MasterServer() throws RemoteException {
         super();
         // TODO Auto-generated constructor stub
+    }
+
+    private ArrayList<DataTuple3> join(ArrayList<DataTuple1> data1, ArrayList<DataTuple2> data2) {
+        Collections.sort(data1);
+        Collections.sort(data2);
+
+        ArrayList<DataTuple3> result = new ArrayList<>();
+        int a = 0;
+        int b = 0;
+
+        while (a < data1.size() && b < data2.size()) {
+            if (data1.get(a).getA1() > data2.get(b).getA1()){
+                b += 1;
+            }
+            else if (data1.get(a).getA1() < data2.get(b).getA1()) {
+                a += 1;
+            }
+            else {
+
+                for (int i = b; i < data2.size(); i++) {
+                    if ((data1.get(a).getA1() != data2.get(i).getA1())) {break;}
+                    result.add(new DataTuple3(data2.get(i).getA1(), data1.get(a).getA2(), data1.get(a).getA3(), data2.get(i).getA2(), data2.get(i).getA3()));
+                }
+
+                for (int i = a+1; i < data1.size(); i++) {
+                    if ((data1.get(i).getA1() != data2.get(b).getA1())) {break;}
+                    result.add(new DataTuple3(data1.get(i).getA1(), data1.get(i).getA2(), data1.get(i).getA3(), data2.get(b).getA2(), data2.get(b).getA3()));
+                }
+                a+= 1;
+                b += 1;
+            }
+        }
+        return result;
+    }
+
+
+    @Override
+    public ArrayList<DataTuple3> doNaiveJoin(ArrayList<DataTuple1> d1, ArrayList<DataTuple2> d2)  throws MalformedURLException, RemoteException, NotBoundException {
+        return join(d1, d2);
     }
 
     @Override
@@ -41,8 +82,6 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
             
             //System.out.print(br);
             while ((line = br.readLine()) != null) {
-
-            	
             	
                 // use comma as separator
                 String[] table1 = line.split(cvsSplitBy);
@@ -51,16 +90,14 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
                 //System.out.println(table1[1]);
 
             }
-while ((line = br2.readLine()) != null) {
 
-            	
-            	
+            while ((line = br2.readLine()) != null) {
+
                 // use comma as separator
                 String[] table2 = line.split(cvsSplitBy);
                 DataTuple2 tuple = new DataTuple2(Integer.parseInt(table2[0]),Integer.parseInt(table2[1]), table2[2]);
                 data1.add(tuple);
                 //System.out.println(table2[1]);
-
             }
 
         } catch (FileNotFoundException e) {
