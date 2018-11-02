@@ -54,24 +54,23 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
 
 
     @Override
-    public ArrayList<DataTuple3> doNaiveJoin(ArrayList<DataTuple1> d1, ArrayList<DataTuple2> d2)  throws MalformedURLException, RemoteException, NotBoundException {
-        return join(d1, d2);
-    }
-
-    @Override
-    public ArrayList<DataTuple> doJoin()  throws MalformedURLException, RemoteException, NotBoundException {
-
-        SubServerInterface service1 = (SubServerInterface) Naming.lookup("rmi://localhost:5099/sub1");
+    public ArrayList<DataTuple3> doNaiveJoin()  throws MalformedURLException, RemoteException, NotBoundException {
+        
+    	SubServerInterface service1 = (SubServerInterface) Naming.lookup("rmi://localhost:5099/sub1");
         SubServerInterface service2 = (SubServerInterface) Naming.lookup("rmi://localhost:5098/sub2");
+        SubServerInterface service3 = (SubServerInterface) Naming.lookup("rmi://localhost:5097/sub3");
 
         ArrayList<DataTuple> data1 = new ArrayList<>();
         ArrayList<DataTuple> data2 = new ArrayList<>();
+        ArrayList<DataTuple> data3 = new ArrayList<>();
         
         String csvFile1 = "./CSV/table1.csv";
         String csvFile2 = "./CSV/table2.csv";
+        String csvFile3 = "./CSV/table3.csv";
 
         BufferedReader br = null;
         BufferedReader br2 = null;
+        BufferedReader br3 = null;
         String line = "";
         String cvsSplitBy = ";";
 
@@ -79,6 +78,7 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
 
             br = new BufferedReader(new FileReader(csvFile1));
             br2 = new BufferedReader(new FileReader(csvFile2));
+            br3 = new BufferedReader(new FileReader(csvFile3));
             
             //System.out.print(br);
             while ((line = br.readLine()) != null) {
@@ -86,7 +86,7 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
                 // use comma as separator
                 String[] table1 = line.split(cvsSplitBy);
                 DataTuple1 tuple = new DataTuple1(Integer.parseInt(table1[0]),table1[1], table1[2]);
-                data2.add(tuple);
+                data1.add(tuple);
                 //System.out.println(table1[1]);
 
             }
@@ -96,8 +96,17 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
                 // use comma as separator
                 String[] table2 = line.split(cvsSplitBy);
                 DataTuple2 tuple = new DataTuple2(Integer.parseInt(table2[0]),Integer.parseInt(table2[1]), table2[2]);
-                data1.add(tuple);
+                data2.add(tuple);
                 //System.out.println(table2[1]);
+            }
+            
+            while ((line = br3.readLine()) != null) {
+
+                // use comma as separator
+                String[] table3 = line.split(cvsSplitBy);
+                DataTuple2 tuple = new DataTuple2(Integer.parseInt(table3[0]),Integer.parseInt(table3[1]), table3[2]);
+                data3.add(tuple);
+                //System.out.println(tuple);
             }
 
         } catch (FileNotFoundException e) {
@@ -116,16 +125,112 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
         
         service1.putData(data1);
         service2.putData(data2);
+        service3.putData(data3);
+        
+        long a = System.currentTimeMillis();
+        
+        ArrayList<DataTuple1> dt1 = service1.getData();
+        ArrayList<DataTuple2> dt2 = service2.getData();
+        ArrayList<DataTuple3> j = join(dt1, dt2);
+        
+        long time = System.currentTimeMillis()-a;
+        System.out.println(time);
+        
+        return j;
+    }
 
-        BloomFilter filter = new BloomFilter(10000, service1.getDataSize());
+    @Override
+    public ArrayList<DataTuple3> doJoin()  throws MalformedURLException, RemoteException, NotBoundException {
+
+        SubServerInterface service1 = (SubServerInterface) Naming.lookup("rmi://localhost:5099/sub1");
+        SubServerInterface service2 = (SubServerInterface) Naming.lookup("rmi://localhost:5098/sub2");
+        SubServerInterface service3 = (SubServerInterface) Naming.lookup("rmi://localhost:5097/sub3");
+
+        ArrayList<DataTuple> data1 = new ArrayList<>();
+        ArrayList<DataTuple> data2 = new ArrayList<>();
+        ArrayList<DataTuple> data3 = new ArrayList<>();
+        
+        String csvFile1 = "./CSV/table1.csv";
+        String csvFile2 = "./CSV/table2.csv";
+        String csvFile3 = "./CSV/table3.csv";
+
+        BufferedReader br = null;
+        BufferedReader br2 = null;
+        BufferedReader br3 = null;
+        String line = "";
+        String cvsSplitBy = ";";
+
+        try {
+
+            br = new BufferedReader(new FileReader(csvFile1));
+            br2 = new BufferedReader(new FileReader(csvFile2));
+            br3 = new BufferedReader(new FileReader(csvFile3));
+            
+            //System.out.print(br);
+            while ((line = br.readLine()) != null) {
+            	
+                // use comma as separator
+                String[] table1 = line.split(cvsSplitBy);
+                DataTuple1 tuple = new DataTuple1(Integer.parseInt(table1[0]),table1[1], table1[2]);
+                data1.add(tuple);
+                //System.out.println(table1[1]);
+
+            }
+
+            while ((line = br2.readLine()) != null) {
+
+                // use comma as separator
+                String[] table2 = line.split(cvsSplitBy);
+                DataTuple2 tuple = new DataTuple2(Integer.parseInt(table2[0]),Integer.parseInt(table2[1]), table2[2]);
+                data2.add(tuple);
+                //System.out.println(table2[1]);
+            }
+            
+            while ((line = br3.readLine()) != null) {
+
+                // use comma as separator
+                String[] table3 = line.split(cvsSplitBy);
+                DataTuple2 tuple = new DataTuple2(Integer.parseInt(table3[0]),Integer.parseInt(table3[1]), table3[2]);
+                data3.add(tuple);
+                //System.out.println(tuple);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        
+        service1.putData(data1);
+        service2.putData(data2);
+        service3.putData(data3);
+
+        long a = System.currentTimeMillis();
+        
+        BloomFilter filter = new BloomFilter(3500, service2.getDataSize());
         service1.setFilterConfig(filter.getM(), filter.getP(), filter.getA(), filter.getB());
         service2.setFilterConfig(filter.getM(), filter.getP(), filter.getA(), filter.getB());
 
         boolean[] bf = service1.getBF();
-        ArrayList<DataTuple> dt = service2.getFilteredData(bf);
-        for (DataTuple z : dt) {
+        ArrayList<DataTuple1> dt1 = service1.getFilteredData(bf);
+        ArrayList<DataTuple2> dt2 = service2.getData();
+        
+        ArrayList<DataTuple3> q = join(dt1, dt2);
+        
+        long time = System.currentTimeMillis()-a;
+        System.out.println(time);
+        
+        for (DataTuple z : dt2) {
             //z.print();
         }
-        return dt;
+        return q;
     }
 }

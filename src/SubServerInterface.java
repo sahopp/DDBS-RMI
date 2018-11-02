@@ -12,5 +12,7 @@ public interface SubServerInterface extends Remote {
 
     int getDataSize() throws RemoteException;
 
-    ArrayList<DataTuple> getFilteredData(boolean[] bf) throws RemoteException;
+    <T> ArrayList<T> getFilteredData(boolean[] bf) throws RemoteException;
+    
+    <T> ArrayList<T> getData() throws RemoteException;
 }

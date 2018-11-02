@@ -11,9 +11,12 @@ public class ApplicationServer {
 
         Registry registry5098 =LocateRegistry.createRegistry(5098);
         registry5098.rebind("sub2", new SubServer());
-
+        
         Registry registry5097 =LocateRegistry.createRegistry(5097);
-        registry5097.rebind("master", new MasterServer());
+        registry5097.rebind("sub3", new SubServer());
+
+        Registry registry5096 =LocateRegistry.createRegistry(5096);
+        registry5096.rebind("master", new MasterServer());
     }
 
 }

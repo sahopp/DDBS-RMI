@@ -41,4 +41,9 @@ public class SubServer extends UnicastRemoteObject implements SubServerInterface
         }
         return result;
     }
+    
+    public ArrayList<DataTuple> getData() throws RemoteException{
+    	return this.data;
+    	
+    }
 }
