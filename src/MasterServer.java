@@ -14,11 +14,25 @@ import java.util.List;
 
 public class MasterServer extends UnicastRemoteObject implements MasterServerInterface {
 
+	private SubServerInterface service1;
+	private SubServerInterface service2;
+	private SubServerInterface service3;
+	
     protected MasterServer() throws RemoteException {
         super();
         // TODO Auto-generated constructor stub
     }
 
+    public void setup() throws RemoteException, MalformedURLException, NotBoundException {
+    
+    	service1 = (SubServerInterface) Naming.lookup("rmi://localhost:5099/sub1");
+        service2 = (SubServerInterface) Naming.lookup("rmi://localhost:5098/sub2");
+        service3 = (SubServerInterface) Naming.lookup("rmi://localhost:5097/sub3");
+
+        service1.readData1("./CSV/table1.csv");
+        service2.readData2("./CSV/table2.csv");
+        service3.readData2("./CSV/table3.csv");
+    }
     private ArrayList<DataTuple3> join(ArrayList<DataTuple1> data1, ArrayList<DataTuple2> data2) {
         Collections.sort(data1);
         Collections.sort(data2);
@@ -56,19 +70,13 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
     @Override
     public ArrayList<DataTuple3> doNaiveJoin()  throws MalformedURLException, RemoteException, NotBoundException {
         
-    	SubServerInterface service1 = (SubServerInterface) Naming.lookup("rmi://localhost:5099/sub1");
-        SubServerInterface service2 = (SubServerInterface) Naming.lookup("rmi://localhost:5098/sub2");
-        SubServerInterface service3 = (SubServerInterface) Naming.lookup("rmi://localhost:5097/sub3");
-
-        service1.readData1("./CSV/table1.csv");
-        service2.readData2("./CSV/table2.csv");
-        service3.readData2("./CSV/table3.csv");
-        
         
         long a = System.currentTimeMillis();
         
         ArrayList<DataTuple1> dt1 = service1.getData();
         ArrayList<DataTuple2> dt2 = service2.getData();
+        ArrayList<DataTuple2> dt3 = service3.getData();
+        dt2.addAll(dt3);
         
         ArrayList<DataTuple3> j = join(dt1, dt2);
         
@@ -81,14 +89,7 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
     @Override
     public ArrayList<DataTuple3> do12Join()  throws MalformedURLException, RemoteException, NotBoundException {
 
-        SubServerInterface service1 = (SubServerInterface) Naming.lookup("rmi://localhost:5099/sub1");
-        SubServerInterface service2 = (SubServerInterface) Naming.lookup("rmi://localhost:5098/sub2");
-        SubServerInterface service3 = (SubServerInterface) Naming.lookup("rmi://localhost:5097/sub3");
-
-        service1.readData1("./CSV/table1.csv");
-        service2.readData2("./CSV/table2.csv");
-        service3.readData2("./CSV/table3.csv");
-
+      
         long a = System.currentTimeMillis();
         
         BloomFilter filter = new BloomFilter(3500, service2.getDataSize());
@@ -113,14 +114,7 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
     @Override
     public ArrayList<DataTuple3> doIntersectionJoin()  throws MalformedURLException, RemoteException, NotBoundException {
 
-        SubServerInterface service1 = (SubServerInterface) Naming.lookup("rmi://localhost:5099/sub1");
-        SubServerInterface service2 = (SubServerInterface) Naming.lookup("rmi://localhost:5098/sub2");
-        SubServerInterface service3 = (SubServerInterface) Naming.lookup("rmi://localhost:5097/sub3");
-
-        service1.readData1("./CSV/table1.csv");
-        service2.readData2("./CSV/table2.csv");
-        service3.readData2("./CSV/table3.csv");
-
+        
         long a = System.currentTimeMillis();
         
         BloomFilter filter = new BloomFilter(3500, service2.getDataSize() + service3.getDataSize());
@@ -154,13 +148,6 @@ public class MasterServer extends UnicastRemoteObject implements MasterServerInt
     @Override
     public ArrayList<DataTuple3> doUnionJoin()  throws MalformedURLException, RemoteException, NotBoundException {
 
-        SubServerInterface service1 = (SubServerInterface) Naming.lookup("rmi://localhost:5099/sub1");
-        SubServerInterface service2 = (SubServerInterface) Naming.lookup("rmi://localhost:5098/sub2");
-        SubServerInterface service3 = (SubServerInterface) Naming.lookup("rmi://localhost:5097/sub3");
-
-        service1.readData1("./CSV/table1.csv");
-        service2.readData2("./CSV/table2.csv");
-        service3.readData2("./CSV/table3.csv");
 
         long a = System.currentTimeMillis();
         

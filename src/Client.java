@@ -12,7 +12,7 @@ public class Client {
 
         MasterServerInterface master = (MasterServerInterface) Naming.lookup("rmi://localhost:5096/master");
         
-       
+       master.setup();
         
         long a = System.currentTimeMillis();
         ArrayList<DataTuple3> data1 = master.doUnionJoin(); 
@@ -25,9 +25,9 @@ public class Client {
         System.out.println("Intersection Time: " + time2);
 
         long c = System.currentTimeMillis();
-        ArrayList<DataTuple3> data3 = master.do12Join();
+        ArrayList<DataTuple3> data3 = master.doNaiveJoin();
         long time3 = System.currentTimeMillis()-b;
-        System.out.println("12 Time: " + time3);
+        System.out.println("Naive Time: " + time3);
         
         
         for (DataTuple d:data1) {
@@ -35,6 +35,6 @@ public class Client {
           }
         System.out.println("Union Size: " + data1.size());
         System.out.println("Intersection Size: " + data2.size());
-        System.out.println("12 Size: " + data3.size());
+        System.out.println("Naive Size: " + data3.size());
     }
 }
