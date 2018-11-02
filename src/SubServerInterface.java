@@ -15,4 +15,8 @@ public interface SubServerInterface extends Remote {
     <T> ArrayList<T> getFilteredData(boolean[] bf) throws RemoteException;
     
     <T> ArrayList<T> getData() throws RemoteException;
+    
+    void readData1(String path) throws RemoteException;
+    
+    void readData2(String path) throws RemoteException;
 }

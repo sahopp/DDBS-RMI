@@ -6,6 +6,11 @@ import java.util.ArrayList;
 
 public interface MasterServerInterface extends Remote {
 
-    ArrayList<DataTuple3> doJoin() throws MalformedURLException, RemoteException, NotBoundException;
+    ArrayList<DataTuple3> do12Join() throws MalformedURLException, RemoteException, NotBoundException;
+    
     ArrayList<DataTuple3> doNaiveJoin() throws MalformedURLException, RemoteException, NotBoundException;
+    
+    ArrayList<DataTuple3> doIntersectionJoin() throws MalformedURLException, RemoteException, NotBoundException;
+    
+    ArrayList<DataTuple3> doUnionJoin() throws MalformedURLException, RemoteException, NotBoundException;
 }

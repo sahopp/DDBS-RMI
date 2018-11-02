@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -43,7 +47,78 @@ public class SubServer extends UnicastRemoteObject implements SubServerInterface
     }
     
     public ArrayList<DataTuple> getData() throws RemoteException{
-    	return this.data;
+    	return this.data;	
+    }
+    
+    public void readData1(String path) throws RemoteException{
     	
+    	ArrayList<DataTuple> data = new ArrayList<>();
+        BufferedReader br = null;
+        String line = "";
+        String cvsSplitBy = ";";
+
+        try {
+
+            br = new BufferedReader(new FileReader(path));
+
+            while ((line = br.readLine()) != null) {
+            	
+                // use comma as separator
+                String[] table = line.split(cvsSplitBy);
+                DataTuple1 tuple = new DataTuple1(Integer.parseInt(table[0]),table[1], table[2]);
+                data.add(tuple);
+                //System.out.println(table1[1]);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        this.data = data;
+    }
+    
+public void readData2(String path) throws RemoteException{
+    	
+    	ArrayList<DataTuple> data = new ArrayList<>();
+        BufferedReader br = null;
+        String line = "";
+        String cvsSplitBy = ";";
+
+        try {
+
+            br = new BufferedReader(new FileReader(path));
+
+            while ((line = br.readLine()) != null) {
+            	
+                // use comma as separator
+                String[] table = line.split(cvsSplitBy);
+                DataTuple2 tuple = new DataTuple2(Integer.parseInt(table[0]), Integer.parseInt(table[1]), table[2]);
+                data.add(tuple);
+                //System.out.println(table1[1]);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        this.data = data;
     }
 }
